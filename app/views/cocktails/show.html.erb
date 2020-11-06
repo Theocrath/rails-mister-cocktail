@@ -5,6 +5,9 @@
 <% else %>
   <p>No photo yet</p>
 <% end %>
+
+<h2>Ingredients</h2>
+<%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
 <ul>
   <% @doses.each do |dose| %>
     <li>
@@ -17,7 +20,16 @@
   <% end %>
 </ul>
 
-<%= link_to 'Add a new dose', new_cocktail_dose_path(@cocktail), class: 'btn btn-primary' %>
+<h2>Reviews</h2>
+<%= link_to 'Add a review', new_cocktail_review_path(@cocktail), class: 'btn btn-secondary' %>
+<ul>
+  <% @cocktail.reviews.each do |review| %>
+    <%= review.name %>
+    <%= review.content %>
+    <%= review.rating %>
+  <% end %>
+</ul>
+
 <%= link_to 'Back to list', cocktails_path, class: 'btn btn-danger' %>
 
 
